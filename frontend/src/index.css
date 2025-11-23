@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Dreamy, Emotional, Cozy Color Palette */
+  --blush-pink: #F7C6C7;
+  --cream: #FFF5E4;
+  --warm-brown: #7D5A50;
+  --deep-rose: #C85C5C;
+  --off-white: #FDF8F5;
+  
+  /* Neutral Colors */
+  --white: #ffffff;
+  --light-cream: #fefcf7;
+  --soft-gray: #f5f0eb;
+  --medium-gray: #e8ddd3;
+  --dark-gray: #a89f94;
+  --darker-gray: #8b7d6b;
+  --darkest-gray: #6b5b4d;
+  --black: #2c1810;
+
+  /* Font families */
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
+  --font-body: 'Poppins', 'Nunito', sans-serif;
+
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--darkest-gray);
+  background-color: var(--off-white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--deep-rose);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: var(--warm-brown);
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--off-white);
+  color: var(--darkest-gray);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: var(--font-body);
+  background-color: var(--deep-rose);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #b84a4a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(247, 198, 199, 0.3);
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 92, 92, 0.2);
+}

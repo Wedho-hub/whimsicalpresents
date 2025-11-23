@@ -1,0 +1,350 @@
+/* Dreamy About Page Styles */
+.about-page {
+  min-height: 100vh;
+  background-color: var(--off-white);
+}
+
+/* Hero Section */
+.about-hero {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--warm-brown) 100%);
+  color: var(--off-white);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  padding-right: 2rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-family: var(--font-body);
+}
+
+.hero-btn {
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  background: var(--off-white);
+  color: var(--deep-rose);
+  border: none;
+  transition: all 0.3s ease;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background: var(--cream);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-image img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Story Section */
+.story-section {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.story-content {
+  padding-left: 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--darkest-gray);
+  margin-bottom: 2rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.story-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-body);
+}
+
+.story-image img {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(125, 90, 80, 0.1);
+}
+
+/* Values Section */
+.values-section {
+  padding: 5rem 0;
+  background: var(--off-white);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-family: var(--font-body);
+}
+
+.value-card {
+  border: 1px solid var(--soft-gray);
+  box-shadow: 0 4px 15px rgba(125, 90, 80, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+  border-radius: 12px;
+  background-color: var(--off-white);
+  padding: 2rem;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--blush-pink);
+  box-shadow: 0 8px 20px rgba(200, 92, 92, 0.12);
+}
+
+.value-icon {
+  font-size: 3rem;
+  color: var(--deep-rose);
+  margin-bottom: 1.5rem;
+}
+
+.value-title {
+  font-weight: 500;
+  color: var(--darkest-gray);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+}
+
+.value-description {
+  color: var(--dark-gray);
+  line-height: 1.6;
+  font-family: var(--font-body);
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--warm-brown) 100%);
+  color: var(--off-white);
+}
+
+.stat-item {
+  padding: 2rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--off-white);
+  font-family: var(--font-heading);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 500;
+  font-family: var(--font-body);
+}
+
+/* Team Section */
+.team-section {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.team-card {
+  border: 1px solid var(--soft-gray);
+  box-shadow: 0 4px 15px rgba(125, 90, 80, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--off-white);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--blush-pink);
+  box-shadow: 0 8px 20px rgba(200, 92, 92, 0.12);
+}
+
+.team-image-container {
+  height: 250px;
+  overflow: hidden;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.05);
+}
+
+.team-name {
+  font-weight: 600;
+  color: var(--darkest-gray);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-body);
+}
+
+.team-role {
+  color: var(--deep-rose);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+
+.team-bio {
+  color: var(--dark-gray);
+  line-height: 1.6;
+  font-family: var(--font-body);
+}
+
+/* CTA Section */
+.about-cta-section {
+  padding: 4rem 0;
+  background: var(--off-white);
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--darkest-gray);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  color: var(--dark-gray);
+  margin-bottom: 0;
+  font-family: var(--font-body);
+}
+
+.cta-btn {
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  background: var(--deep-rose);
+  border-color: var(--deep-rose);
+  transition: all 0.3s ease;
+  color: var(--off-white);
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+}
+
+.cta-btn:hover {
+  background: #b84a4a;
+  border-color: #b84a4a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(200, 92, 92, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .story-section {
+    padding: 3rem 0;
+  }
+
+  .story-content {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .values-section,
+  .team-section {
+    padding: 3rem 0;
+  }
+
+  .stats-section {
+    padding: 3rem 0;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .about-cta-section {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .value-card,
+  .team-card {
+    margin-bottom: 1.5rem;
+  }
+}

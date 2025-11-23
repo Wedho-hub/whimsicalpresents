@@ -1,0 +1,269 @@
+/* Global Styles for Whimsical Presents */
+
+/* Dreamy, Emotional, Cozy Global Styles */
+
+/* CSS Variables - Using the professional cozy palette */
+
+:root {
+  --primary-color: var(--midnight-teal);
+  --secondary-color: var(--soft-cream);
+  --accent-color: var(--blush-rose);
+  --dark-color: var(--charcoal-slate);
+  --light-color: var(--soft-cream);
+  --gray-color: var(--dark-gray);
+  --success-color: var(--success);
+  --danger-color: var(--danger);
+  --warning-color: var(--warning);
+  --info-color: var(--info);
+
+  --font-family: var(--font-family-secondary);
+  --font-family-heading: var(--font-family-primary);
+  --border-radius: var(--border-radius-lg);
+  --box-shadow: var(--box-shadow-md);
+  --box-shadow-soft: var(--box-shadow-lg);
+  --transition: var(--transition-normal);
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  font-family: var(--font-family);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--warm-brown);
+  text-decoration: none;
+}
+
+/* Buttons */
+.btn {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  border: none;
+  font-family: var(--font-family);
+  padding: 0.75rem 1.5rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+
+.btn-primary {
+  background-color: var(--blush-rose);
+  border-color: var(--blush-rose);
+  color: var(--charcoal-slate);
+}
+
+.btn-primary:hover {
+  background-color: #ce8f8e;
+  border-color: #ce8f8e;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-soft);
+}
+
+.btn-secondary {
+  background-color: var(--midnight-teal);
+  border-color: var(--midnight-teal);
+  color: var(--soft-cream);
+}
+
+.btn-secondary:hover {
+  background-color: #003943;
+  border-color: #003943;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-soft);
+}
+
+/* Cards */
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: none;
+  transition: var(--transition);
+  background-color: var(--off-white);
+  border: 1px solid var(--soft-gray);
+}
+
+.card:hover {
+  box-shadow: var(--box-shadow-soft);
+  transform: translateY(-4px);
+}
+
+/* Form Elements */
+.form-control {
+  border-radius: var(--border-radius);
+  border: 2px solid var(--soft-gray);
+  transition: var(--transition);
+  font-family: var(--font-family);
+  background-color: var(--off-white);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(200, 92, 92, 0.15);
+}
+
+/* Images */
+.img-fluid {
+  border-radius: var(--border-radius);
+}
+
+/* Navigation */
+.navbar {
+  box-shadow: var(--box-shadow);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+/* Product Cards */
+.product-card {
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Loading Spinner */
+.spinner-border {
+  color: var(--primary-color);
+}
+
+/* Alerts */
+.alert {
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+/* Badges */
+.badge {
+  font-weight: 500;
+}
+
+/* Tables */
+.table {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+/* Pagination */
+.pagination .page-link {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Modal */
+.modal-content {
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+/* Carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Utility Classes */
+.text-primary-custom { color: var(--primary-color) !important; }
+.text-secondary-custom { color: var(--text-secondary) !important; }
+.bg-primary-custom { background-color: var(--primary-color) !important; }
+.bg-secondary-custom { background-color: var(--secondary-color) !important; }
+
+.shadow-custom { box-shadow: var(--box-shadow) !important; }
+.border-radius-custom { border-radius: var(--border-radius) !important; }
+
+/* Hide scrollbar for certain elements */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

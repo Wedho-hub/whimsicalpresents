@@ -1,0 +1,333 @@
+/* Dreamy Payment Ecocash Page Styles */
+.payment-ecocash-page {
+  padding: 2rem 0;
+  min-height: 80vh;
+  background-color: var(--off-white);
+}
+
+.payment-header h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--darkest-gray);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.payment-header p {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  font-family: var(--font-body);
+}
+
+/* Payment Card */
+.payment-card {
+  border: 1px solid var(--soft-gray);
+  box-shadow: 0 8px 25px rgba(125, 90, 80, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--off-white);
+}
+
+.payment-card .card-header {
+  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--warm-brown) 100%);
+  color: var(--off-white);
+  border-bottom: none;
+  padding: 2rem;
+}
+
+.payment-icon {
+  font-size: 3rem;
+  color: var(--off-white);
+  opacity: 0.9;
+}
+
+.payment-card .card-body {
+  padding: 2rem;
+}
+
+/* Order Summary */
+.order-summary h5 {
+  color: var(--darkest-gray);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+}
+
+.order-items {
+  margin-bottom: 1rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--soft-gray);
+  font-family: var(--font-body);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-total {
+  text-align: right;
+  font-size: 1.2rem;
+  color: var(--deep-rose);
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+/* Payment Form */
+.phone-input {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--soft-gray);
+  transition: border-color 0.3s ease;
+  font-family: var(--font-body);
+  background-color: var(--off-white);
+}
+
+.phone-input:focus {
+  border-color: var(--deep-rose);
+  box-shadow: 0 0 0 3px rgba(200, 92, 92, 0.1);
+  outline: none;
+}
+
+.payment-instructions {
+  background: var(--cream);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--deep-rose);
+}
+
+.payment-instructions h6 {
+  color: var(--darkest-gray);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+}
+
+.payment-instructions ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.payment-instructions li {
+  margin-bottom: 0.5rem;
+  color: var(--dark-gray);
+  font-family: var(--font-body);
+}
+
+/* Payment Actions */
+.payment-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.back-btn {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background-color: var(--soft-gray);
+  border: 1px solid var(--medium-gray);
+  color: var(--darkest-gray);
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: var(--medium-gray);
+  transform: translateY(-2px);
+}
+
+.pay-btn {
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  background: var(--deep-rose);
+  border-color: var(--deep-rose);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.pay-btn:hover:not(:disabled) {
+  background: #b84a4a;
+  border-color: #b84a4a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(200, 92, 92, 0.3);
+}
+
+.pay-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Processing State */
+.processing-icon {
+  font-size: 4rem;
+  color: var(--deep-rose);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fa-spin {
+  animation: fa-spin 2s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success State */
+.success-card .card-body {
+  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--warm-brown) 100%);
+  color: var(--off-white);
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+}
+
+.success-card h3 {
+  color: var(--off-white);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.transaction-info {
+  background: rgba(253, 248, 245, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-body);
+}
+
+.success-actions .btn {
+  margin: 0 0.5rem;
+}
+
+/* Failed State */
+.failed-card .card-body {
+  background: linear-gradient(135deg, #C85C5C 0%, #7D5A50 100%);
+  color: var(--off-white);
+}
+
+.failed-icon {
+  font-size: 4rem;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+}
+
+.failed-card h3 {
+  color: var(--off-white);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.failed-actions .btn {
+  margin: 0 0.5rem;
+}
+
+/* Security Notice */
+.security-notice {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 8px;
+  border-left: 4px solid var(--deep-rose);
+  font-family: var(--font-body);
+  color: var(--dark-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .payment-ecocash-page {
+    padding: 1rem 0;
+  }
+
+  .payment-header h1 {
+    font-size: 2rem;
+  }
+
+  .payment-card .card-header {
+    padding: 1.5rem;
+  }
+
+  .payment-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .payment-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .back-btn,
+  .pay-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .success-actions,
+  .failed-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .success-actions .btn,
+  .failed-actions .btn {
+    margin: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .payment-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .payment-icon {
+    font-size: 2.5rem;
+  }
+
+  .processing-icon,
+  .success-icon,
+  .failed-icon {
+    font-size: 3rem;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

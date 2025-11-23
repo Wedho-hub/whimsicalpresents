@@ -1,0 +1,122 @@
+/* Dreamy Navbar Styles - Enhanced */
+.navbar {
+  background: var(--midnight-teal);
+  border-bottom: 2px solid var(--champagne-gold);
+  box-shadow: 0 4px 15px rgba(230, 196, 154, 0.15);
+  padding: 1rem 0;
+  color: var(--champagne-gold);
+}
+
+.navbar-brand {
+  font-family: var(--font-family-primary) !important;
+  font-weight: 400 !important;
+  font-size: 1.8rem !important;
+  color: var(--champagne-gold) !important;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand:hover {
+  color: var(--blush-rose) !important;
+  text-decoration: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  position: relative;
+  font-family: var(--font-family-secondary) !important;
+  font-weight: 500 !important;
+  color: var(--champagne-gold) !important;
+  padding: 0.5rem 1rem !important;
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+}
+
+.nav-link:hover {
+  color: var(--soft-cream) !important;
+  background-color: rgba(231, 164, 161, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  color: var(--blush-rose) !important;
+  border-bottom: 2px solid var(--blush-rose);
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-badge {
+  background-color: var(--blush-pink) !important;
+  color: var(--deep-rose) !important;
+  font-weight: 700;
+  font-size: 0.65rem;
+  padding: 0.35rem 0.5rem !important;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown .dropdown-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%);
+  border: 2px solid var(--blush-pink);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 0;
+  min-width: 180px;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 8px 24px rgba(200, 92, 92, 0.2);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-dropdown .dropdown-menu .nav-link {
+  color: var(--warm-brown) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0;
+  background: none !important;
+}
+
+.nav-dropdown .dropdown-menu .nav-link:hover {
+  color: var(--deep-rose) !important;
+  background-color: var(--blush-pink) !important;
+}
+
+.badge {
+  font-size: 0.75rem;
+  background-color: var(--blush-pink) !important;
+  color: var(--warm-brown) !important;
+  font-weight: 600;
+}

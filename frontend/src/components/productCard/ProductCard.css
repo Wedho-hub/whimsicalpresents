@@ -1,0 +1,112 @@
+/* Dreamy Product Card Styles */
+.product-card {
+  transition: var(--transition);
+  border: 1px solid var(--soft-gray);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--off-white);
+  box-shadow: var(--box-shadow);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-soft);
+  border-color: var(--blush-pink);
+}
+
+.product-image {
+  height: 220px;
+  object-fit: cover;
+  transition: var(--transition);
+  border-bottom: 1px solid var(--soft-gray);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.03);
+}
+
+.product-title {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--darkest-gray);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.product-title:hover {
+  color: var(--deep-rose);
+}
+
+.product-description {
+  font-family: var(--font-family);
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.product-price {
+  font-family: var(--font-family-heading);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--deep-rose);
+  margin-bottom: 0.5rem;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--warning);
+  margin-bottom: 1rem;
+}
+
+.product-card .btn {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  font-family: var(--font-family);
+  padding: 0.6rem 1.2rem;
+  background-color: var(--deep-rose);
+  border-color: var(--deep-rose);
+  color: white;
+}
+
+.product-card .btn:hover {
+  background-color: #b84a4a;
+  border-color: #b84a4a;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-soft);
+  color: white;
+}
+
+/* Card body padding */
+.product-card .card-body {
+  padding: 1.5rem;
+}
+
+/* Wishlist/heart icon */
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--off-white);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--deep-rose);
+  transition: var(--transition);
+  border: 1px solid var(--soft-gray);
+  z-index: 10;
+}
+
+.wishlist-icon:hover {
+  background-color: var(--blush-pink);
+  color: var(--warm-brown);
+  transform: scale(1.1);
+}
