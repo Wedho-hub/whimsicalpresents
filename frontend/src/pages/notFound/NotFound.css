@@ -88,6 +88,7 @@
   background: rgba(253, 248, 245, 0.1);
   padding: 2rem;
   border-radius: 12px;
+  -webkit-backdrop-filter: blur(10px); /* Safari/iOS support */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(253, 248, 245, 0.2);
 }

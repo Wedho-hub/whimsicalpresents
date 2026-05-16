@@ -1,3 +1,14 @@
+
+/**
+ * User Controller
+ * ---------------
+ * Handles user authentication, registration, profile management, and admin user operations.
+ *
+ * Exports route handlers for:
+ * - User login and registration
+ * - Profile retrieval and update
+ * - Admin: get, update, and delete users
+ */
 import User from '../models/User.js';
 import generateToken from '../utils/generateToken.js';
 
