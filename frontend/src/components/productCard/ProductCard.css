@@ -1,10 +1,10 @@
-/* Product Card Styles */
+/* Product Card — Midnight Crimson */
 
 .product-card {
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: var(--cream);
+  background: var(--midnight-card);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   height: 100%;
@@ -15,55 +15,57 @@
 .product-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--rose-blush);
+  border-color: var(--border-glow);
 }
 
-/* Image container */
+/* Image */
 .product-image-wrapper {
   position: relative;
   overflow: hidden;
-  background: var(--rose-petal);
+  background: var(--midnight-2);
 }
 
 .product-image {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  transition: transform 0.45s ease;
+  transition: transform 0.5s ease;
   display: block;
+  filter: brightness(0.92) contrast(1.05);
 }
 
 .product-card:hover .product-image {
-  transform: scale(1.06);
+  transform: scale(1.07);
+  filter: brightness(1) contrast(1.05);
 }
 
-/* Wishlist / heart button */
+/* Wishlist heart */
 .wishlist-icon {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: var(--cream);
+  background: var(--midnight-card);
   border-radius: var(--radius-full);
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--rose-crimson);
-  border: 1px solid var(--border-light);
+  color: var(--crimson-soft);
+  border: 1px solid var(--border-subtle);
   cursor: pointer;
   transition: var(--transition);
   z-index: 2;
   box-shadow: var(--shadow-sm);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .wishlist-icon:hover {
-  background: var(--rose-crimson);
+  background: var(--crimson);
   color: #fff;
-  border-color: var(--rose-crimson);
+  border-color: var(--crimson);
   transform: scale(1.12);
-  box-shadow: var(--shadow-rose);
+  box-shadow: var(--shadow-crimson);
 }
 
 /* Category badge */
@@ -72,13 +74,14 @@
   top: 12px;
   left: 12px;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: var(--burgundy);
-  color: var(--text-on-dark);
-  padding: 0.25rem 0.65rem;
+  background: var(--midnight);
+  color: var(--gold);
+  border: 1px solid var(--border-gold);
+  padding: 0.22rem 0.65rem;
   border-radius: var(--radius-pill);
   z-index: 2;
 }
@@ -89,13 +92,14 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: var(--midnight-card);
 }
 
 .product-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 400;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 0.4rem;
   letter-spacing: -0.01em;
   line-height: 1.35;
@@ -105,16 +109,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-.product-card:hover .product-title {
-  color: var(--rose-crimson);
-}
+.product-card:hover .product-title { color: var(--gold); }
 
 .product-description {
   font-family: var(--font-body);
-  color: var(--text-soft);
-  font-size: 0.855rem;
-  line-height: 1.6;
+  color: var(--text-muted);
+  font-size: 0.845rem;
+  line-height: 1.65;
   margin-bottom: 0.85rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -134,14 +135,14 @@
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 400;
-  color: var(--rose-crimson);
+  color: var(--gold);
   letter-spacing: -0.02em;
 }
 
 .product-price-original {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  color: var(--text-soft);
+  color: var(--text-muted);
   text-decoration: line-through;
 }
 
@@ -155,26 +156,29 @@
 }
 
 .rating-stars {
-  color: var(--gold-champagne);
+  color: var(--gold);
   display: flex;
   gap: 2px;
+  filter: drop-shadow(0 0 4px rgba(212, 168, 67, 0.4));
 }
 
 .rating-count {
-  color: var(--text-soft);
+  color: var(--text-muted);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 /* Add to cart button */
 .product-card .btn-add-cart {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 0.65rem 1.25rem;
   border-radius: var(--radius-pill);
-  background: var(--rose-crimson);
-  border: 2px solid var(--rose-crimson);
+  background: var(--crimson);
+  border: 2px solid var(--crimson);
   color: #fff;
   width: 100%;
   cursor: pointer;
@@ -183,24 +187,35 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  letter-spacing: 0.03em;
   margin-top: auto;
+  position: relative;
+  overflow: hidden;
 }
 
+.product-card .btn-add-cart::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.4s ease;
+}
+.product-card .btn-add-cart:hover::after { left: 150%; }
+
 .product-card .btn-add-cart:hover {
-  background: var(--rose-vivid);
-  border-color: var(--rose-vivid);
+  background: var(--crimson-vivid);
+  border-color: var(--crimson-vivid);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-rose);
+  box-shadow: var(--shadow-crimson);
   color: #fff;
 }
 
-/* Stock badge */
+/* Stock badges */
 .product-stock-badge {
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-pill);
@@ -209,13 +224,15 @@
 }
 
 .product-stock-badge.in-stock {
-  background: rgba(45, 122, 79, 0.12);
+  background: rgba(34, 197, 94, 0.12);
   color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.25);
 }
 
 .product-stock-badge.out-of-stock {
-  background: rgba(181, 41, 78, 0.1);
-  color: var(--rose-crimson);
+  background: rgba(192, 21, 42, 0.12);
+  color: var(--crimson-soft);
+  border: 1px solid var(--border-glow);
 }
 
 /* Responsive */

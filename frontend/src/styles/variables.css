@@ -1,53 +1,106 @@
 /* CSS Custom Properties — Whimsical Presents */
-/* Romantic Rose & Champagne Gold Design System  */
+/* Midnight Crimson Design System              */
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    COLOUR PALETTE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root {
-  /* ── Romantic Rose ── */
-  --rose-crimson:   #B5294E;   /* primary CTA, buttons            */
-  --rose-vivid:     #D63F67;   /* hover & active accents           */
-  --rose-blush:     #F2C4CE;   /* card backgrounds, soft fills     */
-  --rose-petal:     #FDF0F4;   /* near-white section backgrounds   */
+  /* ── Midnight Backgrounds ── */
+  --midnight:       #080C18;   /* page background               */
+  --midnight-2:     #0D1220;   /* section alt background        */
+  --midnight-card:  #0F1628;   /* card / panel background       */
+  --midnight-raise: #151E35;   /* raised surfaces, inputs       */
+  --midnight-high:  #1C2845;   /* highlighted surface           */
 
-  /* ── Champagne Gold ── */
-  --gold-champagne: #C9A96E;   /* luxury borders & accent text     */
-  --gold-warm:      #E8CFA0;   /* lighter gold decorations         */
-  --gold-pale:      #FBF5E8;   /* subtle gold section fills        */
+  /* ── Crimson ── */
+  --crimson:        #C0152A;   /* primary CTA                   */
+  --crimson-vivid:  #E01830;   /* hover / active                */
+  --crimson-soft:   #FF4457;   /* lighter crimson               */
+  --crimson-pale:   #FFB3BB;   /* very light, text on dark      */
+  --crimson-glow:   rgba(192, 21, 42, 0.35); /* glow/blur use  */
 
-  /* ── Deep Romance ── */
-  --burgundy:       #7B1C42;   /* navbar background, dark headings */
-  --plum-deep:      #3D0B22;   /* footer background                */
-  --velvet:         #5C1235;   /* CTA / hero dark overlays         */
-
-  /* ── Warm Neutrals ── */
-  --ivory:          #FAF5EE;   /* page background                  */
-  --cream:          #FFF8F2;   /* card & panel backgrounds         */
-  --white-warm:     #FEFCF9;   /* inputs & lightest surfaces       */
+  /* ── Metallic Gold ── */
+  --gold:           #D4A843;   /* luxury accent                 */
+  --gold-bright:    #F0C060;   /* brighter gold, hover          */
+  --gold-muted:     #9A7320;   /* muted gold for dark surfaces  */
+  --gold-pale:      rgba(212, 168, 67, 0.12); /* tinted surface */
 
   /* ── Text ── */
-  --text-dark:      #2C1810;   /* primary headings & strong text   */
-  --text-medium:    #5A3E35;   /* body copy                        */
-  --text-soft:      #9A7B72;   /* muted / captions                 */
-  --text-on-dark:   #FAF5EE;   /* text on burgundy / dark surfaces */
-  --text-gold:      #C9A96E;   /* branded gold text                */
+  --text-white:     #FFFFFF;   /* primary headings              */
+  --text-light:     #C8D4F0;   /* body copy on dark             */
+  --text-muted:     #6878A8;   /* captions / secondary          */
+  --text-gold:      var(--gold);
 
   /* ── Status ── */
-  --success:        #2D7A4F;
-  --warning:        #C9A96E;
-  --danger:         #B5294E;
-  --info:           #2C6E8A;
+  --success:        #22C55E;
+  --warning:        var(--gold);
+  --danger:         var(--crimson);
+  --info:           #3B82F6;
 
-  /* ── Semantic Aliases ── */
-  --brand-primary:   var(--rose-crimson);
-  --brand-secondary: var(--burgundy);
-  --brand-accent:    var(--gold-champagne);
-  --bg-primary:      var(--ivory);
-  --bg-card:         var(--cream);
-  --bg-dark:         var(--plum-deep);
-  --border-light:    #E8D8DF;
-  --border-medium:   #D4A8B5;
+  /* ── Borders ── */
+  --border-glow:    rgba(192, 21, 42, 0.3);
+  --border-subtle:  rgba(255, 255, 255, 0.07);
+  --border-medium:  rgba(255, 255, 255, 0.14);
+  --border-gold:    rgba(212, 168, 67, 0.35);
+
+  /* ── Semantic aliases ── */
+  --brand-primary:   var(--crimson);
+  --brand-secondary: var(--midnight-2);
+  --brand-accent:    var(--gold);
+  --bg-primary:      var(--midnight);
+  --bg-card:         var(--midnight-card);
+  --bg-dark:         var(--midnight);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LEGACY COLOUR ALIASES
+   (Component CSS written for the rose palette
+    maps here so nothing breaks)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  --rose-crimson:    var(--crimson);
+  --rose-vivid:      var(--crimson-vivid);
+  --rose-blush:      var(--crimson-pale);
+  --rose-petal:      var(--midnight-card);
+  --gold-champagne:  var(--gold);
+  --gold-warm:       var(--gold-bright);
+  --gold-pale:       var(--gold-pale);
+  --burgundy:        var(--midnight-2);
+  --plum-deep:       var(--midnight);
+  --velvet:          var(--midnight-card);
+  --ivory:           var(--midnight);
+  --cream:           var(--midnight-card);
+  --white-warm:      var(--midnight-raise);
+  --off-white:       var(--midnight-raise);
+  --soft-cream:      var(--midnight);
+  --blush-pink:      var(--crimson-pale);
+  --blush-rose:      var(--crimson-pale);
+  --deep-rose:       var(--crimson);
+  --warm-brown:      var(--gold-muted);
+  --midnight-teal:   var(--midnight-2);
+  --charcoal-slate:  var(--midnight-raise);
+  --champagne-gold:  var(--gold);
+  --soft-gray:       var(--midnight-high);
+  --light-gray:      var(--midnight-high);
+  --medium-gray:     var(--midnight-raise);
+  --dark-gray:       var(--text-muted);
+  --darker-gray:     var(--text-light);
+  --darkest-gray:    var(--text-white);
+
+  /* Text aliases */
+  --text-dark:       var(--text-white);
+  --text-medium:     var(--text-light);
+  --text-soft:       var(--text-muted);
+  --text-on-dark:    var(--text-white);
+  --text-primary:    var(--text-white);
+  --text-secondary:  var(--text-light);
+
+  /* Border aliases */
+  --border-light:    var(--border-subtle);
+
+  /* Background aliases */
+  --bg-secondary:    var(--midnight-2);
+  --bg-accent:       var(--crimson-glow);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -57,7 +110,6 @@
   --font-heading:  'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-body:     'Nunito', 'Inter', system-ui, sans-serif;
 
-  /* legacy aliases */
   --font-family-primary:   var(--font-heading);
   --font-family-secondary: var(--font-body);
 
@@ -72,7 +124,6 @@
   --text-5xl:  3rem;
   --text-6xl:  3.75rem;
 
-  /* legacy aliases */
   --font-size-xs:   var(--text-xs);
   --font-size-sm:   var(--text-sm);
   --font-size-base: var(--text-base);
@@ -101,7 +152,6 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* legacy aliases */
   --spacing-xs:  var(--space-1);
   --spacing-sm:  var(--space-2);
   --spacing-md:  var(--space-4);
@@ -127,21 +177,22 @@
   --radius-pill: 50px;
   --radius-full: 50%;
 
-  /* legacy aliases */
   --border-radius-sm:  var(--radius-sm);
   --border-radius-md:  var(--radius-md);
   --border-radius-lg:  var(--radius-lg);
   --border-radius-xl:  var(--radius-xl);
   --border-radius:     var(--radius-lg);
 
-  --shadow-sm:    0 1px 4px rgba(44, 24, 16, 0.08);
-  --shadow-md:    0 4px 16px rgba(44, 24, 16, 0.12);
-  --shadow-lg:    0 8px 32px rgba(44, 24, 16, 0.14);
-  --shadow-xl:    0 16px 48px rgba(44, 24, 16, 0.16);
-  --shadow-rose:  0 8px 24px rgba(181, 41, 78, 0.28);
-  --shadow-gold:  0 4px 16px rgba(201, 169, 110, 0.3);
+  /* Shadows — deeper on dark backgrounds */
+  --shadow-sm:      0 2px 8px  rgba(0, 0, 0, 0.45);
+  --shadow-md:      0 4px 20px rgba(0, 0, 0, 0.55);
+  --shadow-lg:      0 8px 36px rgba(0, 0, 0, 0.65);
+  --shadow-xl:      0 16px 56px rgba(0, 0, 0, 0.75);
+  --shadow-crimson: 0 6px 28px rgba(192, 21, 42, 0.55);
+  --shadow-gold:    0 4px 18px rgba(212, 168, 67, 0.45);
 
-  /* legacy aliases */
+  /* Legacy shadow aliases */
+  --shadow-rose:     var(--shadow-crimson);
   --box-shadow-sm:   var(--shadow-sm);
   --box-shadow-md:   var(--shadow-md);
   --box-shadow-lg:   var(--shadow-lg);
@@ -176,36 +227,9 @@
    COMPONENT TOKENS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root {
-  --btn-radius:     var(--radius-pill);
-  --btn-padding:    0.7rem 1.8rem;
-  --card-radius:    var(--radius-xl);
-  --card-padding:   1.5rem;
-  --navbar-height:  var(--header-height);
-
-  /* ── Colour legacy aliases (referenced in existing component CSS) ── */
-  --off-white:       var(--white-warm);
-  --soft-cream:      var(--ivory);
-  --blush-pink:      var(--rose-blush);
-  --blush-rose:      var(--rose-blush);
-  --deep-rose:       var(--rose-crimson);
-  --warm-brown:      #7D5A50;
-  --midnight-teal:   var(--burgundy);
-  --charcoal-slate:  var(--text-dark);
-  --champagne-gold:  var(--gold-champagne);
-  --soft-gray:       #E8E0DC;
-  --light-gray:      #F4F0EE;
-  --medium-gray:     #C8B8B2;
-  --dark-gray:       var(--text-soft);
-  --darker-gray:     var(--text-medium);
-  --darkest-gray:    var(--text-dark);
-
-  /* text aliases */
-  --text-primary:    var(--text-dark);
-  --text-secondary:  var(--text-medium);
-  --text-muted:      var(--text-soft);
-  --text-light:      var(--text-on-dark);
-
-  /* bg aliases */
-  --bg-secondary:    var(--ivory);
-  --bg-accent:       var(--rose-blush);
+  --btn-radius:    var(--radius-pill);
+  --btn-padding:   0.7rem 1.8rem;
+  --card-radius:   var(--radius-xl);
+  --card-padding:  1.5rem;
+  --navbar-height: var(--header-height);
 }
