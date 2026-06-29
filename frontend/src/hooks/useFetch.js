@@ -4,53 +4,39 @@ export const useFetch = (fetchFunction, dependencies = []) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [refetchIndex, setRefetchIndex] = useState(0);
   const fetchFunctionRef = useRef(fetchFunction);
-  const dependenciesRef = useRef(dependencies);
-
-  // Update refs whenever they change
-  useEffect(() => {
-    fetchFunctionRef.current = fetchFunction;
-    dependenciesRef.current = dependencies;
-  }, [fetchFunction, dependencies]);
+  fetchFunctionRef.current = fetchFunction;
 
   useEffect(() => {
-    if (!fetchFunctionRef.current) return;
+    let active = true;
 
     const fetchData = async () => {
       setLoading(true);
       try {
         const result = await fetchFunctionRef.current();
+        if (!active) return;
         setData(result);
         setError(null);
       } catch (err) {
+        if (!active) return;
         setError(err.response?.data?.message || err.message);
         setData(null);
       } finally {
-        setLoading(false);
+        if (active) setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+
+    return () => {
+      active = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [...dependencies, refetchIndex]);
 
   const refetch = useCallback(() => {
-    if (!fetchFunctionRef.current) return;
-
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const result = await fetchFunctionRef.current();
-        setData(result);
-        setError(null);
-      } catch (err) {
-        setError(err.response?.data?.message || err.message);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    setRefetchIndex((i) => i + 1);
   }, []);
 
   return { data, loading, error, refetch };

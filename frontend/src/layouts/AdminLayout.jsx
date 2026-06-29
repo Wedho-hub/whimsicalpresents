@@ -6,9 +6,9 @@ import { FaTachometerAlt, FaBox, FaShoppingCart, FaUsers, FaCreditCard } from 'r
 
 const AdminLayout = () => {
   return (
-    <div className="d-flex">
+    <div className="d-flex" style={{ minHeight: '100vh', background: 'var(--midnight)' }}>
       {/* Sidebar */}
-      <div className="bg-dark text-white" style={{ width: '250px', minHeight: '100vh' }}>
+      <div className="text-white" style={{ width: '250px', minHeight: '100vh', background: 'var(--midnight-2)' }}>
         <div className="p-3">
           <h5>Admin Panel</h5>
           <Nav className="flex-column">
@@ -52,7 +52,9 @@ const AdminLayout = () => {
           <Navbar.Brand>Whimsical Presents - Admin</Navbar.Brand>
         </Navbar>
         <Container fluid className="p-4">
-          <Outlet />
+          <div className="bg-white rounded-3 p-4 shadow-sm">
+            <Outlet />
+          </div>
         </Container>
       </div>
     </div>

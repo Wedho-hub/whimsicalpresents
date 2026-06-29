@@ -6,7 +6,7 @@ import Product from '../models/Product.js';
 // @access  Private
 const createOrder = async (req, res) => {
   try {
-    const { products, shippingAddress } = req.body;
+    const { products, shippingAddress, paymentMethod } = req.body;
     const user = req.user._id;
 
     // Calculate total amount and validate products
@@ -35,6 +35,7 @@ const createOrder = async (req, res) => {
       products: orderProducts,
       totalAmount,
       shippingAddress,
+      paymentMethod,
     });
 
     const createdOrder = await order.save();
@@ -57,7 +58,10 @@ const createOrder = async (req, res) => {
 // @access  Private
 const getMyOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.user._id }).populate('user', 'name email');
+    const orders = await Order.find({ user: req.user._id })
+      .populate('user', 'name email')
+      .populate('products.product', 'name imageUrl')
+      .sort({ createdAt: -1 });
     res.json(orders);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -69,7 +73,9 @@ const getMyOrders = async (req, res) => {
 // @access  Private
 const getOrderById = async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id).populate('user', 'name email');
+    const order = await Order.findById(req.params.id)
+      .populate('user', 'name email')
+      .populate('products.product', 'name imageUrl');
     if (order) {
       res.json(order);
     } else {

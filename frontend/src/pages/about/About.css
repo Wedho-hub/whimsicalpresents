@@ -1,17 +1,21 @@
-/* Dreamy About Page Styles */
 .about-page {
   min-height: 100vh;
-  background-color: var(--off-white);
+  background-color: var(--midnight);
 }
 
 /* Hero Section */
 .about-hero {
   padding: 5rem 0;
-  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--warm-brown) 100%);
-  color: var(--off-white);
-  min-height: 60vh;
+  background: var(--midnight-2);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  min-height: 55vh;
   display: flex;
   align-items: center;
+}
+
+.about-hero > .row {
+  width: 100%;
 }
 
 .hero-content {
@@ -25,43 +29,46 @@
   line-height: 1.1;
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
+  color: var(--text-white);
 }
 
 .hero-description {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.6;
-  opacity: 0.9;
+  color: var(--text-light);
   font-family: var(--font-body);
 }
 
 .hero-btn {
   font-weight: 600;
   padding: 0.75rem 2rem;
-  border-radius: 8px;
-  background: var(--off-white);
-  color: var(--deep-rose);
+  border-radius: var(--btn-radius);
+  background: var(--crimson);
+  color: var(--text-white);
   border: none;
-  transition: all 0.3s ease;
+  transition: var(--transition-fast);
   font-family: var(--font-body);
   cursor: pointer;
 }
 
 .hero-btn:hover {
-  background: var(--cream);
+  background: var(--crimson-vivid);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-crimson);
 }
 
-.hero-image img {
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.hero-image img,
+.story-image img {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
 }
 
 /* Story Section */
 .story-section {
   padding: 5rem 0;
-  background: var(--cream);
+  background: var(--midnight);
 }
 
 .story-content {
@@ -71,7 +78,7 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: 400;
-  color: var(--darkest-gray);
+  color: var(--text-white);
   margin-bottom: 2rem;
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
@@ -80,62 +87,57 @@
 .story-text {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--dark-gray);
+  color: var(--text-light);
   margin-bottom: 1.5rem;
   font-family: var(--font-body);
-}
-
-.story-image img {
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(125, 90, 80, 0.1);
 }
 
 /* Values Section */
 .values-section {
   padding: 5rem 0;
-  background: var(--off-white);
+  background: var(--midnight-2);
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: var(--dark-gray);
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto 3rem;
   font-family: var(--font-body);
 }
 
 .value-card {
-  border: 1px solid var(--soft-gray);
-  box-shadow: 0 4px 15px rgba(125, 90, 80, 0.08);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
   height: 100%;
-  border-radius: 12px;
-  background-color: var(--off-white);
+  border-radius: var(--card-radius);
+  background-color: var(--midnight-card);
   padding: 2rem;
 }
 
 .value-card:hover {
   transform: translateY(-5px);
-  border-color: var(--blush-pink);
-  box-shadow: 0 8px 20px rgba(200, 92, 92, 0.12);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-md);
 }
 
 .value-icon {
   font-size: 3rem;
-  color: var(--deep-rose);
+  color: var(--crimson);
   margin-bottom: 1.5rem;
 }
 
 .value-title {
   font-weight: 500;
-  color: var(--darkest-gray);
+  color: var(--text-white);
   margin-bottom: 1rem;
   font-family: var(--font-heading);
   font-size: 1.3rem;
 }
 
 .value-description {
-  color: var(--dark-gray);
+  color: var(--text-light);
   line-height: 1.6;
   font-family: var(--font-body);
 }
@@ -143,8 +145,9 @@
 /* Stats Section */
 .stats-section {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--warm-brown) 100%);
-  color: var(--off-white);
+  background: var(--midnight);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .stat-item {
@@ -155,13 +158,13 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--off-white);
+  color: var(--gold-bright);
   font-family: var(--font-heading);
 }
 
 .stat-label {
   font-size: 1.1rem;
-  opacity: 0.9;
+  color: var(--text-muted);
   font-weight: 500;
   font-family: var(--font-body);
 }
@@ -169,23 +172,23 @@
 /* Team Section */
 .team-section {
   padding: 5rem 0;
-  background: var(--cream);
+  background: var(--midnight-2);
 }
 
 .team-card {
-  border: 1px solid var(--soft-gray);
-  box-shadow: 0 4px 15px rgba(125, 90, 80, 0.08);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
   height: 100%;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   overflow: hidden;
-  background-color: var(--off-white);
+  background-color: var(--midnight-card);
 }
 
 .team-card:hover {
   transform: translateY(-5px);
-  border-color: var(--blush-pink);
-  box-shadow: 0 8px 20px rgba(200, 92, 92, 0.12);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-md);
 }
 
 .team-image-container {
@@ -206,20 +209,20 @@
 
 .team-name {
   font-weight: 600;
-  color: var(--darkest-gray);
+  color: var(--text-white);
   margin-bottom: 0.5rem;
   font-family: var(--font-body);
 }
 
 .team-role {
-  color: var(--deep-rose);
+  color: var(--gold);
   font-weight: 500;
   margin-bottom: 1rem;
   font-family: var(--font-body);
 }
 
 .team-bio {
-  color: var(--dark-gray);
+  color: var(--text-light);
   line-height: 1.6;
   font-family: var(--font-body);
 }
@@ -227,13 +230,13 @@
 /* CTA Section */
 .about-cta-section {
   padding: 4rem 0;
-  background: var(--off-white);
+  background: var(--midnight);
 }
 
 .cta-title {
   font-size: 2.5rem;
   font-weight: 400;
-  color: var(--darkest-gray);
+  color: var(--text-white);
   margin-bottom: 1rem;
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
@@ -241,7 +244,7 @@
 
 .cta-description {
   font-size: 1.2rem;
-  color: var(--dark-gray);
+  color: var(--text-light);
   margin-bottom: 0;
   font-family: var(--font-body);
 }
@@ -249,21 +252,21 @@
 .cta-btn {
   font-weight: 600;
   padding: 0.75rem 2rem;
-  border-radius: 8px;
-  background: var(--deep-rose);
-  border-color: var(--deep-rose);
-  transition: all 0.3s ease;
-  color: var(--off-white);
+  border-radius: var(--btn-radius);
+  background: var(--crimson);
+  border-color: var(--crimson);
+  transition: var(--transition-fast);
+  color: var(--text-white);
   font-family: var(--font-body);
   cursor: pointer;
   border: none;
 }
 
 .cta-btn:hover {
-  background: #b84a4a;
-  border-color: #b84a4a;
+  background: var(--crimson-vivid);
+  border-color: var(--crimson-vivid);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(200, 92, 92, 0.3);
+  box-shadow: var(--shadow-crimson);
 }
 
 /* Responsive adjustments */

@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import { GiDiamondRing, GiRose, GiChocolateBar } from 'react-icons/gi';
 import ProductCard from '../../components/productCard/ProductCard';
+import Reveal from '../../components/reveal/Reveal';
 import { useFetch } from '../../hooks/useFetch';
 import { getProducts } from '../../services/productService';
 import './Home.css';
@@ -77,7 +78,7 @@ const Home = () => {
   const { data: products, loading, error } = useFetch(() => getProducts({ limit: 8 }), []);
 
   useEffect(() => {
-    if (products) setFeaturedProducts(products.slice(0, 4));
+    if (products?.products) setFeaturedProducts(products.products.slice(0, 4));
   }, [products]);
 
   return (
@@ -268,18 +269,19 @@ const Home = () => {
       ══════════════════════════════════════ */}
       <section className="categories-section section-py">
         <Container>
-          <div className="section-header">
+          <Reveal className="section-header">
             <span className="section-label">Shop By Recipient</span>
             <h2 className="section-title">Find the Perfect Gift</h2>
             <p className="section-subtitle">
               Curated selections for every person and every occasion —
               delivered fresh to your loved ones in Zimbabwe.
             </p>
-          </div>
+          </Reveal>
 
           <Row className="g-4 justify-content-center">
-            {GIFT_CATEGORIES.map((cat) => (
+            {GIFT_CATEGORIES.map((cat, i) => (
               <Col key={cat.id} md={4} sm={12}>
+                <Reveal delay={i * 120}>
                 <Link to={cat.link} className="category-card-link">
                   <div className={`category-card category-${cat.color}`}>
                     <div className="category-emoji">{cat.emoji}</div>
@@ -291,6 +293,7 @@ const Home = () => {
                     </span>
                   </div>
                 </Link>
+                </Reveal>
               </Col>
             ))}
           </Row>
@@ -302,14 +305,14 @@ const Home = () => {
       ══════════════════════════════════════ */}
       <section className="featured-section section-py">
         <Container>
-          <div className="section-header">
+          <Reveal className="section-header">
             <span className="section-label">Bestsellers</span>
             <h2 className="section-title">Most Loved Gifts</h2>
             <p className="section-subtitle">
               Handpicked favourites adored by our customers across Zimbabwe
               and the diaspora community worldwide.
             </p>
-          </div>
+          </Reveal>
 
           {loading ? (
             <div className="products-loading text-center py-5">
@@ -352,14 +355,14 @@ const Home = () => {
       ══════════════════════════════════════ */}
       <section className="how-it-works-section section-py">
         <Container>
-          <div className="section-header">
+          <Reveal className="section-header">
             <span className="section-label">Simple Process</span>
             <h2 className="section-title">Send Gifts From Anywhere</h2>
             <p className="section-subtitle">
               Whether you're in the UK, US, South Africa or anywhere in the world —
               sending love to Zimbabwe has never been this easy.
             </p>
-          </div>
+          </Reveal>
 
           <Row className="g-4 justify-content-center">
             {HOW_IT_WORKS.map((step, i) => (
@@ -393,10 +396,10 @@ const Home = () => {
       ══════════════════════════════════════ */}
       <section className="occasions-section section-py">
         <Container>
-          <div className="section-header">
+          <Reveal className="section-header">
             <span className="section-label">Shop by Moment</span>
             <h2 className="section-title">Every Celebration Covered</h2>
-          </div>
+          </Reveal>
 
           <div className="occasions-grid">
             {OCCASIONS.map((occ, i) => (
@@ -453,10 +456,10 @@ const Home = () => {
       ══════════════════════════════════════ */}
       <section className="features-section section-py">
         <Container>
-          <div className="section-header">
+          <Reveal className="section-header">
             <span className="section-label">Why Choose Us</span>
             <h2 className="section-title">Gifting Done Right</h2>
-          </div>
+          </Reveal>
 
           <Row className="g-4">
             <Col lg={3} md={6}>

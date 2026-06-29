@@ -36,8 +36,19 @@ const orderSchema = new mongoose.Schema({
     default: 'pending',
   },
   shippingAddress: {
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    address: { type: String, required: true },
+    city: { type: String, required: true },
+    province: { type: String, required: true },
+    postalCode: { type: String },
+    deliveryInstructions: { type: String },
+  },
+  paymentMethod: {
     type: String,
-    required: true,
+    default: 'ecocash',
   },
   paymentStatus: {
     type: String,

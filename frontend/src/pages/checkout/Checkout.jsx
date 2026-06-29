@@ -37,6 +37,19 @@ const Checkout = () => {
     }
   }, [cart, navigate, orderPlaced]);
 
+  // AuthContext loads the logged-in user asynchronously (from localStorage)
+  // after the first render, so pre-fill name/email once that data arrives —
+  // matters when a user lands directly on /checkout via a hard page load.
+  useEffect(() => {
+    if (!user) return;
+    setFormData((prev) => ({
+      ...prev,
+      firstName: prev.firstName || user.name?.split(' ')[0] || '',
+      lastName: prev.lastName || user.name?.split(' ').slice(1).join(' ') || '',
+      email: prev.email || user.email || '',
+    }));
+  }, [user]);
+
   // Calculate totals
   const subtotal = getCartTotal();
   const shipping = subtotal > 50 ? 0 : 5; // Free shipping over $50
@@ -85,18 +98,14 @@ const Checkout = () => {
         paymentMethod,
       };
 
-      const response = await createOrder(orderData);
+      const order = await createOrder(orderData);
 
-      if (response.success) {
-        setOrderPlaced(true);
-        clearCart();
-        // Redirect to payment page with order ID
-        setTimeout(() => {
-          navigate(`/payment/ecocash/${response.order._id}`);
-        }, 2000);
-      } else {
-        setError('Failed to place order. Please try again.');
-      }
+      setOrderPlaced(true);
+      clearCart();
+      // Redirect to payment page with order ID
+      setTimeout(() => {
+        navigate(`/payment/ecocash/${order._id}`);
+      }, 2000);
     } catch (err) {
       setError(err.message || 'An error occurred while placing your order');
     } finally {

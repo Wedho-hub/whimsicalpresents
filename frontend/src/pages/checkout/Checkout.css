@@ -261,6 +261,10 @@
   background: var(--off-white);
 }
 
+.checkout-success > .row {
+  width: 100%;
+}
+
 .success-card {
   border: none;
   box-shadow: var(--box-shadow);

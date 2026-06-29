@@ -1,37 +1,25 @@
-// EcoCash payment helper - placeholder for actual EcoCash API integration
-import axios from 'axios';
+// EcoCash payment helper - simulates the EcoCash sandbox until a live
+// merchant integration is available, so demos never depend on reaching
+// process.env.ECOCASH_URL.
+const ZIM_PHONE_REGEX = /^(\+263|0)[7-8][0-9]{8}$/;
 
 const processEcoCashPayment = async (phoneNumber, amount, reference) => {
-  try {
-    // Placeholder for EcoCash API call
-    // In a real implementation, this would call the EcoCash API
-    const response = await axios.post(process.env.ECOCASH_URL, {
-      phoneNumber,
-      amount,
-      reference,
-      merchantCode: process.env.ECOCASH_MERCHANT_CODE,
-    }, {
-      headers: {
-        'Authorization': `Bearer ${process.env.ECOCASH_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-    });
+  // Simulate network/processing latency
+  await new Promise((resolve) => setTimeout(resolve, 1200));
 
-    // Simulate success for now
-    return {
-      success: true,
-      transactionId: `EC${Date.now()}`,
-      status: 'completed',
-      message: 'Payment processed successfully',
-    };
-  } catch (error) {
-    console.error('EcoCash payment error:', error);
+  if (!ZIM_PHONE_REGEX.test(phoneNumber)) {
     return {
       success: false,
-      message: 'Payment failed',
-      error: error.message,
+      message: 'Invalid EcoCash phone number',
     };
   }
+
+  return {
+    success: true,
+    transactionId: `EC${Date.now()}`,
+    status: 'completed',
+    message: 'Payment processed successfully',
+  };
 };
 
 const checkPaymentStatus = async (transactionId) => {

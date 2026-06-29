@@ -5,8 +5,31 @@ import Product from '../models/Product.js';
 // @access  Public
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.json(products);
+    const { page = 1, limit = 12, sort = 'name', category, occasion, search } = req.query;
+
+    const filter = {};
+    if (category) filter.category = category;
+    if (occasion) filter.occasions = occasion;
+    if (search) filter.name = { $regex: search, $options: 'i' };
+
+    const sortField = sort.startsWith('-') ? sort.slice(1) : sort;
+    const sortOrder = sort.startsWith('-') ? -1 : 1;
+
+    const pageNum = Math.max(1, parseInt(page, 10) || 1);
+    const limitNum = Math.max(1, parseInt(limit, 10) || 12);
+
+    const total = await Product.countDocuments(filter);
+    const products = await Product.find(filter)
+      .sort({ [sortField]: sortOrder })
+      .skip((pageNum - 1) * limitNum)
+      .limit(limitNum);
+
+    res.json({
+      products,
+      total,
+      page: pageNum,
+      pages: Math.ceil(total / limitNum),
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

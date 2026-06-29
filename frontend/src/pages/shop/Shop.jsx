@@ -1,31 +1,39 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Pagination, Badge, Alert } from 'react-bootstrap';
 import { FaFilter, FaSearch } from 'react-icons/fa';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../../components/productCard/ProductCard';
 import { useFetch } from '../../hooks/useFetch';
 import { getProducts } from '../../services/productService';
 import './Shop.css';
 
 const Shop = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchParams] = useSearchParams();
+
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('for') || '');
+  const [selectedOccasion, setSelectedOccasion] = useState(searchParams.get('occasion') || '');
   const [sortBy, setSortBy] = useState('name');
   const [currentPage, setCurrentPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
   const productsPerPage = 12;
 
-  // Categories (mock data - in real app, fetch from API)
+  // Recipient categories — match Product.category enum in the backend
   const categories = [
-    'All',
-    'Birthday',
-    'Wedding',
-    'Anniversary',
-    'Baby',
-    'Home & Garden',
-    'Fashion',
-    'Books',
-    'Art & Crafts',
-    'Food & Drink',
+    { value: '', label: 'All Recipients' },
+    { value: 'her', label: 'For Her' },
+    { value: 'him', label: 'For Him' },
+    { value: 'general', label: 'General Gifts' },
+  ];
+
+  const occasionOptions = [
+    { value: '', label: 'All Occasions' },
+    { value: 'valentines', label: "Valentine's Day" },
+    { value: 'birthday', label: 'Birthday' },
+    { value: 'wedding', label: 'Wedding' },
+    { value: 'anniversary', label: 'Anniversary' },
+    { value: 'christmas', label: 'Christmas' },
+    { value: 'graduation', label: 'Graduation' },
   ];
 
   // Sort options
@@ -38,57 +46,60 @@ const Shop = () => {
     { value: '-createdAt', label: 'Newest First' },
   ];
 
-  const { data: products, loading, error, refetch } = useFetch(() =>
+  const { data: products, loading, error } = useFetch(() =>
     getProducts({
       page: currentPage,
       limit: productsPerPage,
       sort: sortBy,
-      category: selectedCategory === 'All' ? '' : selectedCategory,
+      category: selectedCategory,
+      occasion: selectedOccasion,
       search: searchTerm,
-    }), [currentPage, sortBy, selectedCategory, searchTerm]
+    }), [currentPage, sortBy, selectedCategory, selectedOccasion, searchTerm]
   );
 
   // Handle search
   const handleSearch = (e) => {
     e.preventDefault();
     setCurrentPage(1);
-    refetch();
   };
 
   // Handle category filter
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1);
-    refetch();
+  };
+
+  // Handle occasion filter
+  const handleOccasionChange = (occasion) => {
+    setSelectedOccasion(occasion);
+    setCurrentPage(1);
   };
 
   // Handle sort change
   const handleSortChange = (sort) => {
     setSortBy(sort);
     setCurrentPage(1);
-    refetch();
   };
 
   // Handle page change
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    refetch();
   };
 
   // Clear all filters
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedCategory('');
+    setSelectedOccasion('');
     setSortBy('name');
     setCurrentPage(1);
-    refetch();
   };
 
-  // Calculate pagination
-  const totalPages = products ? Math.ceil(products.total / productsPerPage) : 0;
+  // Pagination is performed server-side — use the page of products as-is
+  const totalPages = products?.pages || 0;
   const startIndex = (currentPage - 1) * productsPerPage;
-  const endIndex = startIndex + productsPerPage;
-  const currentProducts = products?.products?.slice(startIndex, endIndex) || [];
+  const endIndex = startIndex + (products?.products?.length || 0);
+  const currentProducts = products?.products || [];
 
   return (
     <Container className="shop-page">
@@ -135,23 +146,39 @@ const Shop = () => {
         {showFilters && (
           <div className="filters-panel">
             <Row>
-              <Col lg={4} md={6}>
+              <Col lg={3} md={6}>
                 <Form.Group className="mb-3">
-                  <Form.Label>Category</Form.Label>
+                  <Form.Label>Recipient</Form.Label>
                   <Form.Select
                     value={selectedCategory}
                     onChange={(e) => handleCategoryChange(e.target.value)}
                   >
                     {categories.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
+                      <option key={category.value} value={category.value}>
+                        {category.label}
                       </option>
                     ))}
                   </Form.Select>
                 </Form.Group>
               </Col>
 
-              <Col lg={4} md={6}>
+              <Col lg={3} md={6}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Occasion</Form.Label>
+                  <Form.Select
+                    value={selectedOccasion}
+                    onChange={(e) => handleOccasionChange(e.target.value)}
+                  >
+                    {occasionOptions.map((occasion) => (
+                      <option key={occasion.value} value={occasion.value}>
+                        {occasion.label}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+
+              <Col lg={3} md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Sort By</Form.Label>
                   <Form.Select
@@ -167,7 +194,7 @@ const Shop = () => {
                 </Form.Group>
               </Col>
 
-              <Col lg={4} md={12} className="d-flex align-items-end">
+              <Col lg={3} md={6} className="d-flex align-items-end">
                 <Button variant="outline-secondary" onClick={clearFilters} className="clear-filters-btn">
                   Clear All Filters
                 </Button>
@@ -178,7 +205,7 @@ const Shop = () => {
       </div>
 
       {/* Active Filters Display */}
-      {(searchTerm || selectedCategory) && (
+      {(searchTerm || selectedCategory || selectedOccasion) && (
         <div className="active-filters">
           <span className="filters-label">Active filters:</span>
           {searchTerm && (
@@ -187,25 +214,31 @@ const Shop = () => {
               <button
                 type="button"
                 className="filter-remove"
-                onClick={() => {
-                  setSearchTerm('');
-                  refetch();
-                }}
+                onClick={() => setSearchTerm('')}
               >
                 ×
               </button>
             </Badge>
           )}
-          {selectedCategory && selectedCategory !== 'All' && (
+          {selectedCategory && (
             <Badge bg="secondary" className="filter-badge">
-              Category: {selectedCategory}
+              {categories.find((c) => c.value === selectedCategory)?.label}
               <button
                 type="button"
                 className="filter-remove"
-                onClick={() => {
-                  setSelectedCategory('');
-                  refetch();
-                }}
+                onClick={() => setSelectedCategory('')}
+              >
+                ×
+              </button>
+            </Badge>
+          )}
+          {selectedOccasion && (
+            <Badge bg="secondary" className="filter-badge">
+              {occasionOptions.find((o) => o.value === selectedOccasion)?.label}
+              <button
+                type="button"
+                className="filter-remove"
+                onClick={() => setSelectedOccasion('')}
               >
                 ×
               </button>

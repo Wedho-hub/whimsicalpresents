@@ -1,68 +1,87 @@
-/* Dreamy Footer Styles */
-.footer {
+.site-footer {
   margin-top: auto;
-  background-color: var(--warm-brown);
-  color: var(--off-white);
-  padding: 3rem 0 1rem;
-  border-top: 1px solid var(--soft-gray);
+  background-color: var(--midnight-2);
+  color: var(--text-light);
+  padding: 3.5rem 0 1.5rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.footer h5 {
-  font-family: var(--font-family-heading);
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 1.5rem;
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-heart {
+  color: var(--crimson);
+  font-size: 1.2rem;
+}
+
+.site-footer h5 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--text-white);
+  margin-bottom: 1.25rem;
   letter-spacing: -0.01em;
 }
 
-.footer p, .footer a {
-  font-family: var(--font-family);
-  color: var(--light-cream);
-  line-height: 1.6;
+.site-footer p {
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
-.footer a {
-  text-decoration: none;
-  transition: var(--transition);
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.footer a:hover {
-  color: var(--blush-pink) !important;
+.footer-links a {
+  color: var(--text-muted);
   text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+  padding-left: 0.25rem;
 }
 
 .social-icons {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.6rem;
 }
 
-.social-icons a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: var(--cream);
-  color: var(--warm-brown) !important;
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: var(--midnight-raise);
+  color: var(--text-light);
   border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  margin-right: 0.5rem;
-  transition: var(--transition);
-  border: 1px solid var(--soft-gray);
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition-fast);
 }
 
-.social-icons a:hover {
-  background-color: var(--blush-pink) !important;
-  color: var(--warm-brown) !important;
-  transform: translateY(-2px);
-  box-shadow: var(--box-shadow-soft);
+.social-icon:hover {
+  background-color: var(--crimson);
+  color: var(--text-white);
+  border-color: var(--crimson);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-crimson);
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--medium-gray);
-  padding-top: 1rem;
-  margin-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+  margin-top: 2.5rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--light-cream);
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 .footer-bottom p {

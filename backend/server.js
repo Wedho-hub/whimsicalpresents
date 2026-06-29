@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/products', (await import('./routes/productRoutes.js')).default);
 app.use('/api/orders',   (await import('./routes/orderRoutes.js')).default);
-app.use('/api/payments', (await import('./routes/ppaymentRoutes.js')).default);
+app.use('/api/payments', (await import('./routes/paymentRoutes.js')).default);
 app.use('/api/users',    (await import('./routes/userRoutes.js')).default);
 
 app.get('/api/health', (_req, res) => {

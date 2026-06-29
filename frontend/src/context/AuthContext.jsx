@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import api from '../services/api.js';
 
 /* eslint-disable react-refresh/only-export-components */
 export const AuthContext = createContext();
@@ -10,8 +11,6 @@ export const useAuth = () => {
   return context;
 };
 /* eslint-enable react-refresh/only-export-components */
-
-const API = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser]       = useState(null);
@@ -36,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const { data } = await axios.post(`${API}/api/users/login`, { email, password });
+      const { data } = await api.post('/users/login', { email, password });
       const { token, ...userData } = data;
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(userData));
@@ -50,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const { data } = await axios.post(`${API}/api/users`, { name, email, password });
+      const { data } = await api.post('/users', { name, email, password });
       const { token, ...userData } = data;
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(userData));

@@ -1,0 +1,107 @@
+.auth-page {
+  padding: 4rem 0;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+}
+
+.auth-page > .row {
+  width: 100%;
+}
+
+.auth-card {
+  background: var(--midnight-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-lg);
+  padding: 1rem;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-heart {
+  font-size: 2rem;
+  color: var(--crimson);
+  margin-bottom: 0.75rem;
+}
+
+.auth-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--text-white);
+  margin-bottom: 0.4rem;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  margin-bottom: 0;
+}
+
+.auth-card .form-label {
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.auth-card .form-control {
+  background: var(--midnight-raise);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1rem;
+  transition: var(--transition-fast);
+}
+
+.auth-card .form-control:focus {
+  background: var(--midnight-raise);
+  color: var(--text-white);
+  border-color: var(--crimson);
+  box-shadow: 0 0 0 3px var(--crimson-glow);
+}
+
+.auth-card .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.auth-submit-btn {
+  background: var(--crimson);
+  border: none;
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding);
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background: var(--crimson-vivid);
+  box-shadow: var(--shadow-crimson);
+  transform: translateY(-1px);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.7;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.auth-switch a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.auth-switch a:hover {
+  color: var(--gold-bright);
+  text-decoration: underline;
+}

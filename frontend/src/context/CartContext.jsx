@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 /* eslint-disable react-refresh/only-export-components */
 export const CartContext = createContext();
@@ -12,26 +12,29 @@ export const useCart = () => {
 };
 /* eslint-enable react-refresh/only-export-components */
 
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [total, setTotal] = useState(0);
-
-  useEffect(() => {
+// Lazily reads localStorage once for the initial render, so there's no
+// separate "load" effect racing against the "save" effect on mount
+// (that race was wiping the cart on every full page load).
+const loadCart = () => {
+  try {
     const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
-    }
-  }, []);
+    return savedCart ? JSON.parse(savedCart) : [];
+  } catch {
+    return [];
+  }
+};
 
-  const calculateTotal = useCallback(() => {
-    const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    setTotal(totalAmount);
-  }, [cartItems]);
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState(loadCart);
+
+  const total = useMemo(
+    () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [cartItems]
+  );
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
-    calculateTotal();
-  }, [cartItems, calculateTotal]);
+  }, [cartItems]);
 
   const addToCart = (product, quantity = 1) => {
     setCartItems(prevItems => {
@@ -72,9 +75,13 @@ export const CartProvider = ({ children }) => {
     return cartItems.reduce((count, item) => count + item.quantity, 0);
   };
 
+  const getCartTotal = () => total;
+
   const value = {
     cartItems,
+    cart: cartItems,
     total,
+    getCartTotal,
     addToCart,
     removeFromCart,
     updateQuantity,

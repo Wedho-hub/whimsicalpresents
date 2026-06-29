@@ -1,0 +1,122 @@
+.myorders-page {
+  padding: 3rem 0;
+  min-height: 70vh;
+}
+
+.myorders-title {
+  font-family: var(--font-heading);
+  color: var(--text-white);
+  margin-bottom: 2rem;
+}
+
+.myorders-empty {
+  color: var(--text-muted);
+}
+
+.myorders-empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.myorders-empty-icon {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.myorders-empty-state h3 {
+  font-family: var(--font-heading);
+  color: var(--text-white);
+}
+
+.myorders-empty-state p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.myorders-shop-btn {
+  background: var(--crimson);
+  border: none;
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding);
+}
+
+.myorders-shop-btn:hover {
+  background: var(--crimson-vivid);
+  box-shadow: var(--shadow-crimson);
+}
+
+.order-card {
+  background: var(--midnight-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.25rem;
+  transition: var(--transition-fast);
+}
+
+.order-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.order-id {
+  display: block;
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.order-date {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.order-status-badge {
+  text-transform: capitalize;
+  align-self: center;
+}
+
+.order-items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.order-item-chip {
+  background: var(--midnight-raise);
+  color: var(--text-light);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.order-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.order-payment {
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.order-payment strong {
+  color: var(--text-light);
+}
+
+.order-total {
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 1.1rem;
+}

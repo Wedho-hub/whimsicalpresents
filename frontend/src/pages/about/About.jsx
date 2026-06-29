@@ -39,20 +39,20 @@ const About = () => {
       name: 'Tendai Chitsungo',
       role: 'Founder & CEO',
       bio: 'Passionate about connecting Zimbabwean artisans with the world.',
-      image: '/team/tendai.jpg'
+      image: 'https://loremflickr.com/400/400/portrait,businessman?lock=21',
     },
     {
       name: 'Nomsa Moyo',
       role: 'Head of Design',
       bio: 'Curating the most beautiful and meaningful gift collections.',
-      image: '/team/nomsa.jpg'
+      image: 'https://loremflickr.com/400/400/portrait,businesswoman?lock=22',
     },
     {
       name: 'Kudakwashe Ndlovu',
       role: 'Operations Manager',
       bio: 'Ensuring every order is handled with care and delivered on time.',
-      image: '/team/kudakwashe.jpg'
-    }
+      image: 'https://loremflickr.com/400/400/portrait,man?lock=23',
+    },
   ];
 
   return (
@@ -77,7 +77,7 @@ const About = () => {
             <Col lg={6}>
               <div className="hero-image">
                 <img
-                  src="/about-hero.jpg"
+                  src="https://loremflickr.com/700/600/handicraft,workshop?lock=24"
                   alt="Zimbabwean artisans at work"
                   className="img-fluid rounded"
                 />
@@ -94,7 +94,7 @@ const About = () => {
             <Col lg={6}>
               <div className="story-image">
                 <img
-                  src="/story-image.jpg"
+                  src="https://loremflickr.com/700/600/giftbox,wrapping?lock=25"
                   alt="Our story"
                   className="img-fluid rounded"
                 />

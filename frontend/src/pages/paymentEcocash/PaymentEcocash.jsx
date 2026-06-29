@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Form, Button, Alert, Spinner, ProgressBar } 
 import { FaMobileAlt, FaCheckCircle, FaExclamationTriangle, FaArrowLeft } from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
 import { usePayment } from '../../hooks/usePayment';
+import { getOrderById } from '../../services/orderService';
 import { formatPrice } from '../../utils/formatPrice';
 import './PaymentEcocash.css';
 
@@ -14,21 +15,30 @@ const PaymentEcocash = () => {
   const [paymentStep, setPaymentStep] = useState('form'); // form, processing, success, failed
   const [transactionId, setTransactionId] = useState('');
   const [orderDetails, setOrderDetails] = useState(null);
+  const [loadError, setLoadError] = useState('');
 
-  // Mock order details (in real app, fetch from API)
   useEffect(() => {
+    const fetchOrder = async () => {
+      try {
+        const order = await getOrderById(orderId);
+        setOrderDetails({
+          _id: order._id,
+          totalAmount: order.totalAmount,
+          items: order.products.map((item) => ({
+            name: item.product?.name || 'Item',
+            quantity: item.quantity,
+            price: item.price,
+          })),
+          customerName: `${order.shippingAddress?.firstName || ''} ${order.shippingAddress?.lastName || ''}`.trim(),
+          customerEmail: order.shippingAddress?.email,
+        });
+      } catch (err) {
+        setLoadError(err.response?.data?.message || 'Unable to load order details');
+      }
+    };
+
     if (orderId) {
-      // Simulate fetching order details
-      setOrderDetails({
-        _id: orderId,
-        totalAmount: 150.00,
-        items: [
-          { name: 'Handcrafted Basket', quantity: 1, price: 75.00 },
-          { name: 'Zimbabwean Beadwork', quantity: 2, price: 37.50 }
-        ],
-        customerName: 'John Doe',
-        customerEmail: 'john@example.com'
-      });
+      fetchOrder();
     }
   }, [orderId]);
 
@@ -75,6 +85,9 @@ const PaymentEcocash = () => {
       </Card.Header>
 
       <Card.Body>
+        {loadError && (
+          <Alert variant="warning" className="mb-3">{loadError}</Alert>
+        )}
         {orderDetails && (
           <div className="order-summary mb-4">
             <h5>Order Summary</h5>
